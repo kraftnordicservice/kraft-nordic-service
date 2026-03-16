@@ -325,6 +325,18 @@ body.topbar-fixed-padding {
     background: #c62828;
 }
 
+.topbar-right .prices-terms {
+    background: #374151;
+    color: #fff;
+    padding: 0.2rem 0.9rem;
+    border-radius: 8px;
+    transition: background 0.3s;
+}
+
+.topbar-right .prices-terms:hover {
+    background: #1f2937;
+}
+
 .cart-count {
     display: inline-block;
     background: #e53935;
