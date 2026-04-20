@@ -73,6 +73,7 @@
           <form action="https://formsubmit.co/kraftnordicservice@gmail.com" method="POST">
             <input type="hidden" name="_subject" value="Ny förfrågan från webbplatsen">
             <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_autoresponse" value="Tack for ditt meddelande till Kraft Nordic Service VVS AB. Vi har tagit emot din forfragan och aterkommer sa snart vi kan, vanligtvis inom 24 timmar.">
 
             <label for="contact-name">Namn</label>
             <input id="contact-name" name="name" type="text" placeholder="Ditt namn" autocomplete="name" required>
@@ -85,6 +86,8 @@
 
             <label for="contact-message">Meddelande</label>
             <textarea id="contact-message" name="message" placeholder="Beskriv kort vad du behöver hjälp med" required></textarea>
+
+            <p class="form-meta">Du far ett bekräftelsemejl direkt efter att formuläret har skickats.</p>
 
             <button type="submit" class="btn btn-book">Skicka förfrågan</button>
           </form>
