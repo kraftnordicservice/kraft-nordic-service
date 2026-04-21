@@ -70,13 +70,16 @@
         <div class="contact-right">
           <h2>Hör av dig!</h2>
 
-          <form action="https://formsubmit.co/kraftnordicservice@gmail.com" method="POST">
-            <input type="hidden" name="_subject" value="Ny förfrågan från webbplatsen">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_autoresponse" value="Tack for ditt meddelande till Kraft Nordic Service VVS AB. Vi har tagit emot din forfragan och aterkommer sa snart vi kan, vanligtvis inom 24 timmar.">
+          <form>
+            <input type="hidden" name="lastname" value="">
+            <input type="hidden" name="address" value="">
+            <input type="hidden" name="service" value="Kontaktförfrågan">
+            <input type="hidden" name="personnummer" value="">
+            <input type="hidden" name="property" value="">
+            <input type="hidden" name="apartment" value="">
 
             <label for="contact-name">Namn</label>
-            <input id="contact-name" name="name" type="text" placeholder="Ditt namn" autocomplete="name" required>
+            <input id="contact-name" name="firstname" type="text" placeholder="Ditt namn" autocomplete="name" required>
 
             <label for="contact-email">E-post</label>
             <input id="contact-email" name="email" type="email" placeholder="Din e-post" autocomplete="email" required>
@@ -121,6 +124,27 @@
       </div>
     </div>
   </footer>
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script>
+    (function() {
+      emailjs.init("uja5WpTwCjVJF2vUg");
+    })();
+  </script>
+  <script>
+    document.querySelector(".contact-right form").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      emailjs.sendForm(
+        "service_137fu77",
+        "template_oizz8fw",
+        this
+      ).then(function() {
+        alert("Tack! Din förfrågan är skickad.");
+      }, function(error) {
+        alert("Något gick fel. Försök igen.");
+      });
+    });
+  </script>
 </body>
 </html>
 

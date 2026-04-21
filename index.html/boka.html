@@ -27,10 +27,7 @@
           Fyll i uppgifterna nedan så kontaktar vi dig för att bekräfta tid eller lämna offert.
         </p>
 
-        <form class="booking-form" action="https://formsubmit.co/kraftnordicservice@gmail.com" method="POST">
-          <input type="hidden" name="_subject" value="Ny bokningsförfrågan från webbplatsen">
-          <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_autoresponse" value="Tack for din bokningsforfragan till Kraft Nordic Service VVS AB. Vi har tagit emot ditt arende och aterkommer sa snart vi kan, vanligtvis inom 24 timmar.">
+        <form class="booking-form">
           
           <!-- Personlig information -->
           <h3>Personlig information</h3>
@@ -173,6 +170,7 @@
     </section>
   </main>
   <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
     <footer class="site-footer">
     <div class="footer-inner">
       <div class="footer-col footer-company">
@@ -198,6 +196,26 @@
       </div>
     </div>
   </footer>
+  <script>
+    (function() {
+      emailjs.init("uja5WpTwCjVJF2vUg");
+    })();
+  </script>
+  <script>
+    document.querySelector(".booking-form").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      emailjs.sendForm(
+        "service_137fu77",
+        "template_oizz8fw",
+        this
+      ).then(function() {
+        alert("Tack! Din bokningsförfrågan är skickad. Vi återkommer inom kort.");
+      }, function(error) {
+        alert("Något gick fel. Försök igen.");
+      });
+    });
+  </script>
 </body>
 </html>
 
