@@ -1196,20 +1196,6 @@ main {
     flex-shrink: 0;
 }
 
-.service-waiting-time {
-    margin-top: 1rem;
-    font-size: 0.9rem;
-    color: #6b7280;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.service-waiting-time:before {
-    content: "⏱";
-    font-size: 1rem;
-}
-
 /* Service benefits section */
 .service-benefits {
     margin-top: 2rem;
@@ -1248,20 +1234,6 @@ main {
     font-size: 1.1rem;
     margin-right: 0.75rem;
     flex-shrink: 0;
-}
-
-.service-waiting-time {
-    margin-top: 1rem;
-    font-size: 0.9rem;
-    color: #6b7280;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.service-waiting-time:before {
-    content: "⏱";
-    font-size: 1rem;
 }
 
 .service-meta {
