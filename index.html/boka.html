@@ -28,6 +28,8 @@
         </p>
 
         <form class="booking-form">
+          <input type="hidden" name="to_email" value="kraftnordicservice@gmail.com">
+          <input type="hidden" name="reply_to" value="">
           
           <!-- Personlig information -->
           <h3>Personlig information</h3>
@@ -209,6 +211,12 @@
       const form = this;
       const submitButton = form.querySelector('button[type="submit"]');
       const status = form.querySelector('.form-status');
+      const emailField = form.querySelector('[name="email"]');
+      const replyToField = form.querySelector('[name="reply_to"]');
+
+      if (replyToField && emailField) {
+        replyToField.value = (emailField.value || '').trim();
+      }
 
       if (status) {
         status.hidden = true;
