@@ -150,19 +150,26 @@ document.addEventListener('DOMContentLoaded', function() {
     if (!grid || !toggleBtn) return;
 
     const cards = Array.from(grid.querySelectorAll('.service-card'));
+    const gardenCards = cards.filter(card => card.getAttribute('data-category') === 'tradgard');
+    const defaultCards = cards.filter(card => card.getAttribute('data-category') !== 'tradgard');
     const visibleCount = 8;
 
-    if (cards.length <= visibleCount) {
+    // In default "Alla tjänster" view, hide Trädgård cards.
+    gardenCards.forEach(card => {
+        card.style.display = 'none';
+    });
+
+    if (defaultCards.length <= visibleCount) {
         toggleBtn.style.display = 'none';
         return;
     }
 
-    cards.slice(visibleCount).forEach(card => card.classList.add('is-hidden'));
+    defaultCards.slice(visibleCount).forEach(card => card.classList.add('is-hidden'));
 
     let expanded = false;
     toggleBtn.addEventListener('click', function() {
         expanded = !expanded;
-        cards.slice(visibleCount).forEach(card => card.classList.toggle('is-hidden', !expanded));
+        defaultCards.slice(visibleCount).forEach(card => card.classList.toggle('is-hidden', !expanded));
         toggleBtn.textContent = expanded ? 'Visa färre tjänster' : 'Visa fler tjänster';
         toggleBtn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
     });
@@ -175,19 +182,26 @@ document.addEventListener('DOMContentLoaded', function() {
     if (!grid || !toggleBtn) return;
 
     const cards = Array.from(grid.querySelectorAll('.service-card'));
+    const gardenCards = cards.filter(card => card.getAttribute('data-category') === 'tradgard');
+    const defaultCards = cards.filter(card => card.getAttribute('data-category') !== 'tradgard');
     const visibleCount = 8;
 
-    if (cards.length <= visibleCount) {
+    // In default "Alla tjänster" view, hide Trädgård cards.
+    gardenCards.forEach(card => {
+        card.style.display = 'none';
+    });
+
+    if (defaultCards.length <= visibleCount) {
         toggleBtn.style.display = 'none';
         return;
     }
 
-    cards.slice(visibleCount).forEach(card => card.classList.add('is-hidden'));
+    defaultCards.slice(visibleCount).forEach(card => card.classList.add('is-hidden'));
 
     let expanded = false;
     toggleBtn.addEventListener('click', function() {
         expanded = !expanded;
-        cards.slice(visibleCount).forEach(card => card.classList.toggle('is-hidden', !expanded));
+        defaultCards.slice(visibleCount).forEach(card => card.classList.toggle('is-hidden', !expanded));
         toggleBtn.textContent = expanded ? 'Visa färre tjänster' : 'Visa fler tjänster';
         toggleBtn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
     });
@@ -211,11 +225,15 @@ document.addEventListener('DOMContentLoaded', function() {
             // Filter cards and reset expand state
             let visibleCards = [];
             serviceCards.forEach(card => {
+                const cardCategory = card.getAttribute('data-category');
                 if (filterValue === 'all') {
-                    card.style.display = '';
-                    visibleCards.push(card);
+                    if (cardCategory === 'tradgard') {
+                        card.style.display = 'none';
+                    } else {
+                        card.style.display = '';
+                        visibleCards.push(card);
+                    }
                 } else {
-                    const cardCategory = card.getAttribute('data-category');
                     if (cardCategory === filterValue) {
                         card.style.display = '';
                         visibleCards.push(card);

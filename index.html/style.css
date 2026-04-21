@@ -805,6 +805,36 @@ main {
     min-height: 2.8em;
 }
 
+.service-card-desc {
+    margin: 0;
+    font-size: 0.98rem;
+    line-height: 1.55;
+    color: #1f2933;
+}
+
+.service-card--garden h3 {
+    color: #56c271;
+    font-size: 1.95rem;
+    line-height: 1.1;
+    min-height: auto;
+}
+
+.service-link--garden {
+    background: transparent;
+    border-radius: 0;
+    padding: 0;
+    color: #56c271;
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.service-link--garden:hover {
+    background: transparent;
+    color: #40ad5c;
+    text-decoration: underline;
+}
+
 .service-link {
     align-self: flex-start;
     padding: 0.5rem 1.05rem;
@@ -856,6 +886,15 @@ main {
     .service-card h3 {
         min-height: auto;
         font-size: 1.05rem;
+    }
+
+    .service-card--garden h3 {
+        font-size: 1.45rem;
+    }
+
+    .service-card-desc {
+        font-size: 0.95rem;
+        line-height: 1.5;
     }
 
     .service-cta-row {
